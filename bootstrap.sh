@@ -14,10 +14,6 @@ cp files/mfb.com.conf /etc/nginx/sites-enabled/montessorifrombirth.com
 ### php setup
 cp files/www.conf /etc/php-fpm.d/
 
-### Mysql setup
-/usr/bin/mysqladmin -u root password "$mysql_password"
-/usr/bin/mysqladmin -u root --password="$mysql_password" -h $(hostname) "$mysql_password"
-
 ### Wordpress setup
 curl -k https://wordpress.org/latest.tar.gz -O
 tar -xzvf latest.tar.gz
@@ -32,3 +28,5 @@ chkconfig mysqld on
 
 service nginx restart
 service php-fpm restart
+
+echo $mysql_password
